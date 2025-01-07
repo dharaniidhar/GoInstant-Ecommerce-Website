@@ -22,6 +22,8 @@ function AddressCard({
           : "border-black"
       }`}
     >
+        {console.log({ addressInfo, handleDeleteAddress, handleEditAddress, setCurrentSelectedAddress, selectedId })}
+
       <CardContent className="grid p-4 gap-4">
         <Label>Address: {addressInfo?.address}</Label>
         <Label>City: {addressInfo?.city}</Label>

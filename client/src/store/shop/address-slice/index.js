@@ -10,7 +10,7 @@ export const addNewAddress = createAsyncThunk(
   "/addresses/addNewAddress",
   async (formData) => {
     const response = await axios.post(
-      "${import.meta.env.VITE_API_URL}/api/shop/address/add",
+      `${import.meta.env.VITE_API_URL}/api/shop/address/add`,
       formData
     );
 
@@ -63,6 +63,7 @@ const addressSlice = createSlice({
       })
       .addCase(addNewAddress.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.addressList = action.payload.data;
       })
       .addCase(addNewAddress.rejected, (state) => {
         state.isLoading = false;

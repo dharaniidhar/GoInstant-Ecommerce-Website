@@ -9,7 +9,7 @@ function ShoppingProductTile({
   handleAddtoCart,
 }) {
   return (
-    <Card className="w-full max-w-sm mx-auto">
+    <Card className="w-full max-w-sm mx-auto flex flex-col">
       <div onClick={() => handleGetProductDetails(product?._id)}>
         <div className="relative">
           <img
@@ -31,7 +31,7 @@ function ShoppingProductTile({
             </Badge>
           ) : null}
         </div>
-        <CardContent className="p-4">
+        <CardContent className="p-4 flex-1">
           <h2 className="text-xl font-bold mb-2">{product?.title}</h2>
           <div className="flex justify-between items-center mb-2">
             <span className="text-[16px] text-muted-foreground">
@@ -57,7 +57,7 @@ function ShoppingProductTile({
           </div>
         </CardContent>
       </div>
-      <CardFooter>
+      <CardFooter className="mt-auto">
         {product?.totalStock === 0 ? (
           <Button className="w-full opacity-60 cursor-not-allowed">
             Out Of Stock
@@ -76,3 +76,4 @@ function ShoppingProductTile({
 }
 
 export default ShoppingProductTile;
+

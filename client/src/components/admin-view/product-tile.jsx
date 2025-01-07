@@ -9,7 +9,7 @@ function AdminProductTile({
   handleDelete,
 }) {
   return (
-    <Card className="w-full max-w-sm mx-auto">
+    <Card className="w-full max-w-sm mx-auto flex flex-col">
       <div>
         <div className="relative">
           <img
@@ -18,7 +18,7 @@ function AdminProductTile({
             className="w-full h-[300px] object-cover rounded-t-lg"
           />
         </div>
-        <CardContent>
+        <CardContent className="flex-1">
           <h2 className="text-xl font-bold mb-2 mt-2">{product?.title}</h2>
           <div className="flex justify-between items-center mb-2">
             <span
@@ -33,19 +33,19 @@ function AdminProductTile({
             ) : null}
           </div>
         </CardContent>
-        <CardFooter className="flex justify-between items-center">
-          <Button
-            onClick={() => {
-              setOpenCreateProductsDialog(true);
-              setCurrentEditedId(product?._id);
-              setFormData(product);
-            }}
-          >
-            Edit
-          </Button>
-          <Button onClick={() => handleDelete(product?._id)}>Delete</Button>
-        </CardFooter>
       </div>
+      <CardFooter className="mt-auto flex justify-between items-center">
+        <Button
+          onClick={() => {
+            setOpenCreateProductsDialog(true);
+            setCurrentEditedId(product?._id);
+            setFormData(product);
+          }}
+        >
+          Edit
+        </Button>
+        <Button onClick={() => handleDelete(product?._id)}>Delete</Button>
+      </CardFooter>
     </Card>
   );
 }
